@@ -11,17 +11,7 @@ var table = {};
 
 // modify this only!!
 var filepath = '../USstockHistory167Mb_output/stockdata.csv'; //edit this to change file
-// var readFolder = function () {
-//   fs.readdir(dir,function(err,files){
-//     if (err) throw err;
-//     files.forEach(function(file){
-//       //file is a string containing the file name
-//       if (file.substring(file.length - 3) === 'csv')  {
-//         readOne(dir+file);
-//       }
-//     });
-//   });
-// };
+
 var readOne = function (filepath) {
     var data = fs.readFileSync(filepath, 'utf8');
     var array = data.split('\n');
@@ -77,22 +67,6 @@ var insertDB = function (startRow) {
     insertQS += ' (\'';
     insertQS += table.col_values[i].replace(/[^A-Za-z\s\d,&:\.\-//]/g, '').split(',').join('\',\'');
     insertQS += '\')';
-//for insertion into Postgres, must use "null", but not 'null'
-
-    // insertQS += ' (;
-    // var arr = table.col_values[i].replace(/[^A-Za-z\s\d,&:.\-//]/g, '').split(',');
-    // for (var j = 0; j < arr.length; j ++) {
-    //   if (arr[j] === '') {
-    //     insertQS += "null";
-    //   } else {
-    //     insertQS += "'" +arr[j] +"'";
-    //   }
-    //   if (j < arr.length -1) {
-    //     insertQS += ',';
-    //   }
-    // }
-    // temp.push(arr.length);
-//    insertQS += ')';
 
     if (i < startRow + rowlimit - 1) {
       insertQS += ',';
