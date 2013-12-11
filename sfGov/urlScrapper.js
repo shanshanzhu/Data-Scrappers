@@ -4,9 +4,6 @@ var $ = require('jquery');
 var scraper = require('scraper');
 var EventEmitter = require('events').EventEmitter;
 var fs = require('fs');
-// var phantom = require('node-phantom');
-// var casper = require("casper").create();
-// var casper = require('casper').create();
 
 var startUrl = "http://data.sfgov.org/browse?limitTo=datasets&utf8=%E2%9C%93";
 var pageCount = 0;
@@ -30,9 +27,6 @@ var scrapeUrls = function(urls,pageTotal) {
     console.log(i, 'pages downloaded');
     if (i >= urls.length) {
       console.log('download',dbUrls.length, 'urls from all pages');
-//      fs.writeFileSync('dataUrl.txt',dbUrls.join('\n'), function(err){
-//        if(err) throw err;
-//      });
       downLoadCsv(dbUrls);
     }
   });
@@ -87,11 +81,6 @@ var sfGovDownLoad = function(path, title, filetype, cb) {
   console.log(url);
   dataDownloader(url, filepath, cb);
 };
-// downLoadCsv([[ 'https://data.sfgov.org/Transportation/Bicycle-Parking-Public-/w969-5mn4',
-    // 'Bicycle_Parking__Public_' ]] );
-
-
-// description = $('#infoBox').find('.currentViewName').text();
 
 scrapeUrls(generateUrls(startUrl,2,15));
 

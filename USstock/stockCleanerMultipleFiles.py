@@ -7,8 +7,7 @@ from os import listdir
 from os.path import isfile, join
 mypath = './USstockHistory167Mb/'
 onlyfiles = [ f for f in listdir(mypath) if isfile(join(mypath,f)) and f[-3:] == 'csv'  ]
-# for f in onlyfiles:
-# 	fin = open(mypath + f)
+
 
 outputFolder = './USstockHistory167Mb_output_diffTableName1/'
 
