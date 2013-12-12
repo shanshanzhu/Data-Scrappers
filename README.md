@@ -1,7 +1,7 @@
 Data-Scrapper
 =============
 
-This repo contains nodeJS and Python code used to scrap data.
+This repo contains nodeJS and Python code used to scrap data from various data sources.
 
 ###USstock
 
